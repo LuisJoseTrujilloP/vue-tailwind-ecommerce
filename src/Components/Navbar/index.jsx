@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 export default function Navbar() {
 	const activeStyle = "underline";
 	return (
-		<nav className="flex justify-between items-center fixed z-10 w-full py-5 px-8 font-light">
+		<nav className="flex justify-between items-center top-0 fixed z-10 w-full py-5 px-8 font-light">
 			<ul className="flex items-center gap-3">
 				<li className="font-semibold text-lg">
 					<NavLink to="/">Shopi</NavLink>
@@ -59,7 +59,7 @@ export default function Navbar() {
 				</li>
 			</ul>
 			<ul className="flex items-center gap-3">
-				<li>luisjosetrujillodeveloper@gmail.com</li>
+				<li className="text-black/60">luisjosetrujillodeveloper@gmail.com</li>
 				<li>
 					<NavLink
 						to="/account"

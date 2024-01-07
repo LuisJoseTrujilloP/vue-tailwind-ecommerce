@@ -1,10 +1,11 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
+import Layout from "../../Components/Layout";
 
 export default function Account() {
 	return (
-		<div className="flex justify-center">
-			<div></div>
-		</div>
+		<Layout className="flex justify-center">
+			<div>Account</div>
+		</Layout>
 	);
 }
