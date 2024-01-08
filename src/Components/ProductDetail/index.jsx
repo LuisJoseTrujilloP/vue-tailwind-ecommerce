@@ -1,5 +1,4 @@
 import { XMarkIcon } from "@heroicons/react/24/solid";
-
 import React from "react";
 import "./styles.css";
 
