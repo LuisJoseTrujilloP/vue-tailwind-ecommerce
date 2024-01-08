@@ -1,7 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import { useRoutes, BrowserRouter } from "react-router-dom";
-
 import Home from "../Home/index";
 import Account from "../Account/index";
 import Order from "../Order/index";
@@ -9,6 +8,7 @@ import Orders from "../Orders/index";
 import SingIn from "../SingIn/index";
 import NotFound from "../NotFound/index";
 import Navbar from "../../Components/Navbar";
+import ShoppingCartProvider from "../../Context/index";
 
 const AppRoutes = () => {
 	let routes = useRoutes([
@@ -42,10 +42,12 @@ const AppRoutes = () => {
 
 export default function App() {
 	return (
-		<BrowserRouter>
-			<Navbar />
+		<ShoppingCartProvider>
+			<BrowserRouter>
+				<Navbar />
 
-			<AppRoutes />
-		</BrowserRouter>
+				<AppRoutes />
+			</BrowserRouter>
+		</ShoppingCartProvider>
 	);
 }

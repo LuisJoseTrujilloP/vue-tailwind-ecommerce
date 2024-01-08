@@ -1,7 +1,11 @@
 // eslint-disable-next-line no-unused-vars
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { ShoppingCartContext } from "../../Context";
+import carIcon from "../../assets/shopping.svg";
+
 export default function Navbar() {
+	const context = useContext(ShoppingCartContext);
 	const activeStyle = "underline";
 	return (
 		<nav className="flex justify-between items-center top-0 fixed z-10 w-full py-5 px-8 font-light">
@@ -93,11 +97,9 @@ export default function Navbar() {
 					</NavLink>
 				</li>
 				<li>
-					<NavLink
-						to="/car"
-						className={({ isActive }) => (isActive ? activeStyle : undefined)}
-					>
-						Car
+					<NavLink to="/car" className="flex items-center">
+						<img src={carIcon} alt="carIcon" className="w-5 h-5" />
+						{context.count}
 					</NavLink>
 				</li>
 			</ul>
