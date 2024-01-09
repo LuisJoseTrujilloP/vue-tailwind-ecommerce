@@ -9,6 +9,7 @@ import SingIn from "../SingIn/index";
 import NotFound from "../NotFound/index";
 import Navbar from "../../Components/Navbar";
 import ShoppingCartProvider from "../../Context/index";
+import CheckoutSideMenu from "../../Components/CheckoutSideMenu/index";
 
 const AppRoutes = () => {
 	let routes = useRoutes([
@@ -45,7 +46,7 @@ export default function App() {
 		<ShoppingCartProvider>
 			<BrowserRouter>
 				<Navbar />
-
+				<CheckoutSideMenu />
 				<AppRoutes />
 			</BrowserRouter>
 		</ShoppingCartProvider>
