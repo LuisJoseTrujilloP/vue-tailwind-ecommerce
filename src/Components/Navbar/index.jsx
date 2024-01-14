@@ -82,20 +82,20 @@ export default function Navbar() {
 				</li>
 				<li>
 					<NavLink
-						to="/order"
+						to="/my-orders"
 						className={({ isActive }) => (isActive ? activeStyle : undefined)}
 					>
-						Order
+						My Order
 					</NavLink>
 				</li>
-				<li>
+				{/* <li>
 					<NavLink
 						to="/orders"
 						className={({ isActive }) => (isActive ? activeStyle : undefined)}
 					>
 						Orders
 					</NavLink>
-				</li>
+				</li> */}
 				<li>
 					<NavLink to="/car" className="flex items-center">
 						<img src={carIcon} alt="carIcon" className="w-5 h-5" />

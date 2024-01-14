@@ -2,10 +2,10 @@
 import React from "react";
 import Layout from "../../Components/Layout";
 
-export default function Order() {
+export default function MyOrder() {
 	return (
 		<Layout className="flex justify-center">
-			<div>Order</div>
+			<div>My Order</div>
 		</Layout>
 	);
 }
