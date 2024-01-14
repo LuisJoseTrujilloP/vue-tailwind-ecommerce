@@ -17,16 +17,17 @@ const CheckoutSideMenu = () => {
 		);
 		context.setCartProducts(filteredProducts);
 	};
+
 	const handleCheckout = () => {
 		const orderToAdd = {
 			date: "01.02.23",
 			products: context.cartProducts,
-			totalProducts: context.cartProducts,
+			totalProducts: context.cartProducts.length,
 			totalPrice: totalPrice(context.cartProducts),
 		};
+
 		context.setOrder([...context.order, orderToAdd]);
 		context.setCartProducts([]);
-		// console.log("CART: ", orderToAdd);
 	};
 
 	return (
@@ -47,8 +48,8 @@ const CheckoutSideMenu = () => {
 			<div className="px-6 overflow-y-scroll flex-1">
 				{context.cartProducts.map((product) => (
 					<OrderCard
-						id={product.id}
 						key={product.id}
+						id={product.id}
 						title={product.title}
 						imageUrl={product.images}
 						price={product.price}
@@ -57,9 +58,9 @@ const CheckoutSideMenu = () => {
 				))}
 			</div>
 			<div className="px-6 mb-6">
-				<p className="flex justify-between items-center mb-6">
-					<span className="font-light">Total: </span>
-					<span className="font-medium text-xl">
+				<p className="flex justify-between items-center mb-2">
+					<span className="font-light">Total:</span>
+					<span className="font-medium text-2xl">
 						${totalPrice(context.cartProducts)}
 					</span>
 				</p>
