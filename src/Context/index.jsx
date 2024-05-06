@@ -1,11 +1,12 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect} from "react";
 
 export const ShoppingCartContext = createContext();
 
 // eslint-disable-next-line react/prop-types
 export default function ShoppingCartProvider({ children }) {
+	
 	// Shopping Cart · Increment quantity
 	const [count, setCount] = useState(0);
 
@@ -28,9 +29,20 @@ export default function ShoppingCartProvider({ children }) {
 	// Shopping Cart · Order
 	const [order, setOrder] = useState([]);
 
+	//get products
+	const [items, setItems] = useState(null);
+
+	useEffect(() => {
+		fetch("https://api.escuelajs.co/api/v1/products")
+			.then((response) => response.json())
+			.then((data) => setItems(data));
+	}, []);
+
 	return (
 		<ShoppingCartContext.Provider
 			value={{
+				items, 
+				setItems,
 				count,
 				setCount,
 				openProductDetail,
