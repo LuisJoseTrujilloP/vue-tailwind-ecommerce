@@ -38,9 +38,15 @@ export default function ShoppingCartProvider({ children }) {
 			.then((data) => setItems(data));
 	}, []);
 
+	// Get products by title
+	const [searchByTitle, setSearchByTitle] = useState(0);
+
+
 	return (
 		<ShoppingCartContext.Provider
 			value={{
+				searchByTitle,
+				setSearchByTitle,
 				items, 
 				setItems,
 				count,
