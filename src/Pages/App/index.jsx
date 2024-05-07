@@ -1,42 +1,47 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
-import { useRoutes, BrowserRouter } from "react-router-dom";
-import Home from "../Home/index";
-import MyAccount from "../MyAccount/index";
-import MyOrder from "../MyOrder/index";
-import MyOrders from "../MyOrders/index";
-import SignIn from "../SignIn/index";
-import NotFound from "../NotFound/index";
-import Navbar from "../../Components/Navbar";
-import ShoppingCartProvider from "../../Context/index";
-import CheckoutSideMenu from "../../Components/CheckoutSideMenu/index";
+import { useRoutes, BrowserRouter } from 'react-router-dom'
+import { ShoppingCartProvider } from '../../Context'
+import Home from '../Home'
+import MyAccount from '../MyAccount'
+import MyOrder from '../MyOrder'
+import MyOrders from '../MyOrders'
+import NotFound from '../NotFound'
+import SignIn from '../SignIn'
+import Navbar from '../../Components/Navbar'
+import CheckoutSideMenu from '../../Components/CheckoutSideMenu'
+import './App.css'
 
 const AppRoutes = () => {
-	let routes = useRoutes([
-		{ path: "/", element: <Home /> },
-		{ path: "/my-account", element: <MyAccount /> },
-		{ path: "/my-order", element: <MyOrder /> },
-		{ path: "/my-orders", element: <MyOrders /> },
-		{ path: "/my-orders/last", element: <MyOrder /> },
-		{ path: "/my-orders/:id", element: <MyOrder /> },
+  let routes = useRoutes([
+    { path: '/', element: <Home /> },
+    { path: '/clothes', element: <Home /> },
+    { path: '/electronics', element: <Home /> },
+    { path: '/furnitures', element: <Home /> },
+    { path: '/toys', element: <Home /> },
+    { path: '/othes', element: <Home /> },
+    { path: '/my-account', element: <MyAccount /> },
+    { path: '/my-order', element: <MyOrder /> },
+    { path: '/my-orders', element: <MyOrders /> },
+    { path: '/my-orders/last', element: <MyOrder /> },
+    { path: '/my-orders/:id', element: <MyOrder /> },
+    { path: '/sign-in', element: <SignIn /> },
+    { path: '/*', element: <NotFound /> },
+  ])
 
-		{ path: "/sign-in", element: <SignIn /> },
-		{ path: "/*", element: <NotFound /> },
-	]);
-
-	return routes;
-};
+  return routes
+}
 
 const App = () => {
-	return (
-		<ShoppingCartProvider>
-			<BrowserRouter>
-				<AppRoutes />
-				<Navbar />
-				<CheckoutSideMenu />
-			</BrowserRouter>
-		</ShoppingCartProvider>
-	);
-};
+  return (
+    <ShoppingCartProvider>
+      <BrowserRouter>
+        <AppRoutes />
+        <Navbar />
+        <CheckoutSideMenu />
+      </BrowserRouter>
+    </ShoppingCartProvider>
+  )
+}
 
-export default App;
+export default App
