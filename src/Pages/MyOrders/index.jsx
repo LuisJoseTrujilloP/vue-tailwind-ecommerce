@@ -1,25 +1,29 @@
-// eslint-disable-next-line no-unused-vars
-import React, { useContext } from "react";
-import Layout from "../../Components/Layout";
-import { ShoppingCartContext } from "../../Context/index";
-import OrdersCard from "../../Components/OrdersCard/index";
+import { useContext } from "react"
+import Layout from "../../Components/Layout"
+import OrdersCart from "../../Components/OrdersCard"
+import { ShoppingContext } from "../../Context"
 import { Link } from "react-router-dom";
-
-export default function MyOrders() {
-	const context = useContext(ShoppingCartContext);
-	return (
-		<Layout>
-			<div className="flex w-80 items-center relative justify-center mb-6">
-				<h1 className='font-medium text-xl'>My Orders</h1>
-			</div>
-			{context.order.map((order, index) => (
-				<Link key={index} to={`/my-orders/${index}`}>
-					<OrdersCard
-						totalPrice={order.totalPrice}
-						totalProducts={order.totalProducts}
-					/>
-				</Link>
-			))}
-		</Layout>
-	);
-}
+function MyOrders() {
+  var context = useContext(ShoppingContext);
+    return (
+      <Layout>
+        <div className="flex w-80 items-center justify-center relative mb-4">
+          <h1 className=" font-medium text-xl">My orders</h1>
+        </div>
+        <div className="w-3/5">
+          {
+            (context.user.orders || []).map((order, index) => (
+              <Link key={index} to={`/order/${order.id}`}>
+                <OrdersCart order={order}
+                />
+              </Link>
+            ))
+          }
+        </div>
+        
+        
+      </Layout>
+  )
+  }
+  
+  export default MyOrders
